@@ -35,8 +35,18 @@ namespace Colonizer
         private void Awake()
         {
             Instance = this;
+            StartLoadingModuleHeader();
+            StartLoadingModuleContent();
+        }
+
+        void StartLoadingModuleHeader()
+        {
             string[] paths = ModuleLoaderSetup();
             manifest = ModuleChecker(paths);
+        }
+        void StartLoadingModuleContent()
+        {
+
         }
 
         string[] ModuleLoaderSetup()
@@ -91,6 +101,8 @@ namespace Colonizer
             }
             return fest.ToArray();
         }
+
+
 
         /// <summary>
         /// Trying to get the module folder by giving the manifest info

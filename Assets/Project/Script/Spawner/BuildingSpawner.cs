@@ -2,12 +2,9 @@
 
 namespace Colonizer
 {
-    [AddComponentMenu("Colonizer/Spawner/Unit Spawner")]
-    public class UnitSpawner : MonoBehaviour
+    [AddComponentMenu("Colonizer/Spawner/Building Spawner")]
+    public class BuildingSpawner : MonoBehaviour
     {
-
-
-
         public void CreateUnit()
         {
             GameObject go = new GameObject();
