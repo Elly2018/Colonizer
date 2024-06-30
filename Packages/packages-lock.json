@@ -28,6 +28,15 @@
       "dependencies": {},
       "url": "http://registry.npmjs.com"
     },
+    "com.siccity.gltfutility": {
+      "version": "https://github.com/siccity/gltfutility.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      },
+      "hash": "96619fcd48ffe5c4ad122837a21601a6f7c20080"
+    },
     "com.unity.burst": {
       "version": "1.8.15",
       "depth": 1,
@@ -230,18 +239,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "org.khronos.unitygltf": {
-      "version": "https://github.com/KhronosGroup/UnityGLTF.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0",
-        "com.unity.modules.imageconversion": "1.0.0",
-        "com.unity.shadergraph": "10.0.0",
-        "com.unity.mathematics": "1.0.0"
-      },
-      "hash": "dbd863412a2807fea00b4433d28ec3682eac6bda"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

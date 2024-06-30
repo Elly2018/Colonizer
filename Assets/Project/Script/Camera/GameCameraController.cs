@@ -11,6 +11,7 @@ namespace Colonizer
     [AddComponentMenu("Colonizer/Camera/Game Camera Controller")]
     public class GameCameraController : MonoBehaviour, ICameraController
     {
+        #region Field
         [Header("Camera Setting")]
         [SerializeField] [Range(SensitivityMin, SensitivityMax)] float Sensitivity = 1f;
         [SerializeField][Range(HeightMin, HeightMax)] float Height = 1f;
@@ -18,7 +19,9 @@ namespace Colonizer
         [SerializeField] KeyCode HeightLower = KeyCode.E;
         [Header("Camera Setup")]
         [SerializeField] LayerMask FloorMask;
+        #endregion
 
+        #region Constant
         const float SensitivityMultiply = 2.0f;
         const float SensitivityMin = 0.1f;
         const float SensitivityMax = 25.0f;
@@ -26,14 +29,20 @@ namespace Colonizer
         const float HeightMultiply = 5.0f;
         const float HeightMin = 3.0f;
         const float HeightMax = 25.0f;
+        #endregion
 
+        #region Local Variable
         float HeightVelocity = 0.0f;
+        #endregion
 
+        #region Interface Property ICameraController
         public KeyCode HeightRaiseHotKey { get => HeightRaise; set => HeightRaise = value; }
         public KeyCode HeightLowerHotKey { get => HeightLower; set => HeightLower = value; }
         public float CurrentSensitivity { get => Sensitivity; set => Sensitivity = Mathf.Clamp(value, SensitivityMin, SensitivityMax); }
         public float CurrentHeight { get => Height; set => Height = Mathf.Clamp(value, HeightMin, HeightMax); }
+        #endregion
 
+        #region Singleton
         public static ICameraController Instance
         {
             get
@@ -47,19 +56,22 @@ namespace Colonizer
             }
         }
         static ICameraController _Instance;
+        #endregion
 
-        private void Awake()
+        #region Unity Method
+        void Awake()
         {
             _Instance = this;
         }
-
         void FixedUpdate()
         {
             CameraMovement();
             CameraHeight();
             CameraHeightControl();
         }
+        #endregion
 
+        #region Utility
         void CameraMovement()
         {
             Vector2 dir = Vector2.zero;
@@ -69,7 +81,6 @@ namespace Colonizer
             if (Input.GetKey(KeyCode.D)) dir -= Vector2.left;
             transform.Translate(new Vector3(dir.x, 0, dir.y) * Time.deltaTime * SensitivityMultiply * Sensitivity, Space.World);
         }
-
         void CameraHeight()
         {
             Vector3 rayP = transform.position + new Vector3(0, 999f, 3f);
@@ -82,7 +93,6 @@ namespace Colonizer
                 transform.localPosition = new Vector3(b.x, target, b.z);
             }
         }
-
         void CameraHeightControl()
         {
             if (Input.GetKey(HeightRaise))
@@ -95,5 +105,6 @@ namespace Colonizer
             }
             Height = Mathf.Clamp(Height, HeightMin, HeightMax);
         }
+        #endregion
     }
 }

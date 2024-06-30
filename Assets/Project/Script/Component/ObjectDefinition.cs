@@ -1,15 +1,51 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Colonizer
 {
-    [System.Serializable]
-    public class ObjectDefinition : MonoBehaviour
+    [RequireComponent(typeof(DependentPropertyGroupComponent))]
+    [RequireComponent(typeof(PropertyGroupComponent))]
+    [AddComponentMenu("Colonizer/Object/Object Definition")]
+    public class ObjectDefinition : MonoBehaviour, IPropertiesBankAccess, IUnitSpawnerHelper
     {
-        public enum Type
+        [SerializeField] GameObjectType _Type;
+
+        public GameObjectType Type { get => _Type; set => _Type = value; }
+
+        IDependentPropertyBank DPGC = null;
+        IPropertyBank PGC = null;
+
+        void Awake()
         {
-            Unit, Building
+            DPGC = GetComponent<DependentPropertyGroupComponent>();
+            PGC = GetComponent<PropertyGroupComponent>();
         }
 
-        public Type type;
+        /// <summary>
+        /// This will create the property bank for this object
+        /// </summary>
+        /// <param name="Headers"></param>
+        public void CreateProperties(PropertyHeader[] Headers)
+        {
+            DPGC.Append(Headers);
+            PGC.Append(Headers);
+        }
+
+        public object GetInfo(Type type, string Label)
+        {
+            throw new NotImplementedException();
+        }
+        public T GetInfo<T>(string Label)
+        {   
+            return default(T);
+        }
+        public object GetData(Type type, string Label)
+        {
+            throw new NotImplementedException();
+        }
+        public T GetData<T>(string Label)
+        {
+            return default(T);
+        }
     }
 }
