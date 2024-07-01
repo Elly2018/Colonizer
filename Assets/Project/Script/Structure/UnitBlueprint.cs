@@ -3,8 +3,11 @@
     [System.Serializable]
     public struct UnitBlueprint
     {
+        public string UnitID;
         public string Profile;
         public string ModelPath;
-        PropertyHeader[] PropertyHeaders;
+        public PropertyHeader[] ExtraProperty;
+        public PropertyContentGroup Assign;
+        public UnitBehaviour Behaviour;
     }
 }

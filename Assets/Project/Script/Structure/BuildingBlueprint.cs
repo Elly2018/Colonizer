@@ -1,9 +1,13 @@
-﻿namespace Colonizer
+﻿using NaughtyAttributes;
+
+namespace Colonizer
 {
+    [System.Serializable]
     public struct BuildingBlueprint
     {
         public string Profile;
         public string ModelPath;
-        PropertyHeader[] PropertyHeaders;
+        [AllowNesting] public PropertyHeader[] PropertyHeaders;
+        public PropertyContentGroup Assign;
     }
 }

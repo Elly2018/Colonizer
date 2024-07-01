@@ -1,4 +1,6 @@
-﻿namespace Colonizer
+﻿using NaughtyAttributes;
+
+namespace Colonizer
 {
     [System.Serializable]
     public struct PropertyHeader

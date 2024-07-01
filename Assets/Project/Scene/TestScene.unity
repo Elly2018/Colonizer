@@ -740,6 +740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082890023}
+  - component: {fileID: 2082890026}
   - component: {fileID: 2082890025}
   m_Layer: 0
   m_Name: Module Loader
@@ -776,6 +777,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manifest: []
+--- !u!114 &2082890026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082890022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022024ac6a856a7418ad426ec3a6e1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+    PropertyHeaders:
+    - Name: Name
+      Description: Unit_Name
+      DataType: 1
+      IsDependent: 0
+      DependMethod: 
+    - Name: Health
+      Description: Unit_Health
+      DataType: 2
+      IsDependent: 0
+      DependMethod: 
+    - Name: Shield
+      Description: Unit_Shield
+      DataType: 2
+      IsDependent: 0
+      DependMethod: 
+  Units:
+  - UnitID: 
+    Profile: 
+    ModelPath: 
+    ExtraProperty:
+    - Name: Name
+      Description: 
+      DataType: 0
+      IsDependent: 0
+      DependMethod: 
+    Assign:
+      Bools: []
+      Strings: []
+      Ints: []
+      Floats: []
+      Vector2s: []
+      Vector3s: []
+    Behaviour:
+      UType: 0
+      CanAttack: 0
+      CanMine: 0
+      CanFarm: 0
+  Buildings: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
